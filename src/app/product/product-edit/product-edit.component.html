@@ -1,0 +1,25 @@
+<p>product-edit works!</p>
+<h3>Product Detail</h3>
+<form (ngSubmit)="editProduct()">
+  <table>
+    <tr>
+      <td>id</td>
+      <input [(ngModel)]="product.id" name="id" readonly>
+    </tr>
+    <tr>
+      <td>name</td>
+      <input [(ngModel)]="product.name" name="name" >
+    </tr>
+    <tr>
+      <td>id</td>
+      <input [(ngModel)]="product.price" name="price" >
+    </tr>
+    <tr>
+      <td>id</td>
+      <input [(ngModel)]="product.description" name="description" >
+    </tr>
+    <tr>
+      <td><button type="submit">Edit</button></td>
+    </tr>
+  </table>
+</form>

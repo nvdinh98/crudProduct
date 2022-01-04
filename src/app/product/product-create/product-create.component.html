@@ -1,0 +1,33 @@
+<p>product-create works!</p>
+<h1>Tao san pham moi</h1>
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+  <table>
+    <tr>
+      <td>Ma san pham</td>
+      <td>
+        <input type="number" formControlName="id">
+      </td>
+    </tr>
+    <tr>
+      <td>ten san pham</td>
+      <td>
+        <input type="text" formControlName="name">
+      </td>
+    </tr>
+    <tr>
+      <td>gia san pham</td>
+      <td>
+        <input type="number" formControlName="price">
+      </td>
+    </tr>
+    <tr>
+      <td>Mo ta ve san pham</td>
+      <td>
+        <input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Create</button></td>
+    </tr>
+  </table>
+</form>
