@@ -55,7 +55,10 @@ export class ProductService {
   }
 
   updateById(product, id) {
-    this.products.fill(product, id);
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].id === id) {
+        this.products[i] = product;
+      }
+    }
   }
 }
-
