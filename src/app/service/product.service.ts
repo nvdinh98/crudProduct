@@ -54,8 +54,8 @@ export class ProductService {
     this.products.splice(id - 1, 1);
   }
 
-  updateById(product1, id) {
-    this.products.fill(product1, id, id);
+  updateById(product, id) {
+    this.products.fill(product, id);
   }
 }
 
