@@ -29,20 +29,23 @@ export class ProductDeleteComponent implements OnInit {
     this.sub = this.activeRouter.paramMap.subscribe(
       (paramMap: ParamMap) => {
         this.id = Number(paramMap.get('id'));
-        this.product = this.findById(this.id);
+        productService.findProductById(this.id).subscribe(product => {
+          this.product = product;
+        });
       }
     );
   }
 
   ngOnInit() {
   }
-
-  findById(id: number) {
-    return this.productService.findProductById(id);
-  }
+  // findById(id: number) {
+  //   return this.productService.findProductById(id);
+  // }
 
   deleteProduct() {
-    this.productService.deleteProduct(this.product.id);
-    this.router.navigate(['product/list']);
+    console.log(this.product.id);
+    this.productService.deleteProduct(this.id).subscribe(() => {
+      this.router.navigate(['product/list']);
+    });
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ProductService} from "../../service/product.service";
+import {FormControl, FormGroup} from '@angular/forms';
+import {ProductService} from '../../service/product.service';
 
 @Component({
   selector: 'app-product-create',
@@ -21,7 +21,7 @@ export class ProductCreateComponent implements OnInit {
   }
   submit() {
     const product = this.productForm.value;
-    this.productService.saveProduct(product);
+    this.productService.saveProduct(product).subscribe();
     this.productForm.reset();
   }
 

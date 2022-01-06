@@ -6,7 +6,8 @@ import {ProductEditComponent} from './product/product-edit/product-edit.componen
 import {ProductDeleteComponent} from './product/product-delete/product-delete.component';
 
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
   path: 'product/list',
   component: ProductListComponent
 },

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {Subscription} from 'rxjs';
 import {ProductService} from '../../service/product.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-edit',
@@ -21,13 +21,16 @@ export class ProductEditComponent implements OnInit {
   id = 0;
 
   constructor(
-  private productService: ProductService,
-  private activeRouter: ActivatedRoute,
+    private productService: ProductService,
+    private activeRouter: ActivatedRoute,
+    private route: Router,
   ) {
     this.sub = this.activeRouter.paramMap.subscribe(
       (paramMap: ParamMap) => {
         this.id = Number(paramMap.get('id'));
-        this.product = this.findProductById(this.id);
+        this.findProductById(this.id).subscribe(product => {
+          this.product = product;
+        });
       });
   }
 
@@ -39,6 +42,8 @@ export class ProductEditComponent implements OnInit {
   }
 
   editProduct() {
-    this.productService.updateById(this.product, this.product.id);
+    this.productService.updateById(this.product, this.product.id).subscribe(() => {
+      this.route.navigateByUrl('product/list');
+    });
   }
 }
