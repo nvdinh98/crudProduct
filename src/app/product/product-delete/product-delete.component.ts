@@ -38,9 +38,6 @@ export class ProductDeleteComponent implements OnInit {
 
   ngOnInit() {
   }
-  // findById(id: number) {
-  //   return this.productService.findProductById(id);
-  // }
 
   deleteProduct() {
     console.log(this.product.id);

@@ -31,7 +31,8 @@ export class ProductEditComponent implements OnInit {
         this.findProductById(this.id).subscribe(product => {
           this.product = product;
         });
-      });
+      }
+      );
   }
 
   ngOnInit() {
